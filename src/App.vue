@@ -1,7 +1,7 @@
 <template>
-  <section id="app" class="section">
+  <div id="app">
     <router-view/>
-  </section>
+  </div>
   <!-- <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |

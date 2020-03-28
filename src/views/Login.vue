@@ -1,39 +1,42 @@
 <template>
-  <section class="section">
-    <div class="container" v-if="!isLoading">
-      <h4 class="title is-4 has-text-centered">Ingresar ahora</h4>
-      <form>
-        <div class="field">
-          <div class="control">
-            <input class="input" type="text" placeholder="Correo electrónico" />
+  <clean-layout>
+    <section class="section">
+      <div class="container" v-if="!isLoading">
+        <h4 class="title is-4 has-text-centered">Ingresar ahora</h4>
+        <form>
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Correo electrónico" />
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <input class="input" type="password" placeholder="Contraseña" />
+          <div class="field">
+            <div class="control">
+              <input class="input" type="password" placeholder="Contraseña" />
+            </div>
           </div>
-        </div>
-        <div class="content">
-          <p><a href="#">¿Olvidate tu contraseña?</a></p>
-        </div>
-      </form>
-      <button class="button is-primary is-fullwidth">Ingresar</button>
-    </div>
-    <div class="content" v-if="!isLoading">
-      <p class="has-text-centered">ó</p>
-    </div>
-    <div class="container" v-if="!isLoading">
-      <button class="button is-fullwidth" @click="onClickUsingGoogle">Continuar con Google</button>
-    </div>
-    <div class="content" v-if="!isLoading">
-      <p class="has-text-centered">¿No tienes cuenta? Ingresa <router-link to="join">aquí</router-link></p>
-    </div>
-  </section>
+          <div class="content">
+            <p><a href="#">¿Olvidate tu contraseña?</a></p>
+          </div>
+        </form>
+        <button class="button is-primary is-fullwidth is-rounded">Ingresar</button>
+      </div>
+      <div class="content" v-if="!isLoading">
+        <p class="has-text-centered">ó</p>
+      </div>
+      <div class="container" v-if="!isLoading">
+        <button class="button is-fullwidth is-rounded" @click="onClickUsingGoogle">Continuar con Google</button>
+      </div>
+      <div class="content" v-if="!isLoading">
+        <p class="has-text-centered">¿No tienes cuenta? Ingresa <router-link to="join">aquí</router-link></p>
+      </div>
+    </section>
+  </clean-layout>
 </template>
 
 <script>
 // @ is an alias to /src
-//import HelloWorld from '@/components/HelloWorld.vue'
+import CleanLayout from '@/views/layout/CleanLayout.vue'
+
 import auth from '@/service/auth'
 
 export default {
@@ -59,6 +62,9 @@ export default {
     onClickUsingGoogle() {
       auth.googleLogin()
     }
+  },
+  components: {
+    CleanLayout
   }
 }
 </script>

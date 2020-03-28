@@ -3,6 +3,10 @@ import firebase from 'firebase'
 
 class Auth {
 
+  async createUser({ email, password }) {
+    return firebase.auth().createUserWithEmailAndPassword(email, password)
+  }
+
   async processThirdPartyLogin () {
     try {
       const result = await firebase.auth().getRedirectResult()

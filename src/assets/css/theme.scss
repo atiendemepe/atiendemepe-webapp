@@ -10,8 +10,6 @@ $gray-ultraligth: #FDFDFD;
 $text: $grey-strong;
 $text-strong: $dark;
 
-$radius: 30pt;
-
 $family-sans-serif: "Montserrat", sans-serif;
 $body-font-size: 14px;
 
@@ -25,7 +23,6 @@ $fullhd-enabled: false;
 //$control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
-$input-radius: 4px;
 $input-background-color: $gray-ultraligth;
 
 @import "bulma/sass/utilities/_all.sass";

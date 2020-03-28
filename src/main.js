@@ -2,6 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
 import router from './router'
+import Vuelidate from 'vuelidate'
+
+import VueFeather from 'vue-feather';
 
 import firebase from 'firebase'
 
@@ -20,6 +23,9 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
+Vue.use(VueFeather);
+Vue.use(Vuelidate)
 
 new Vue({
   store,
