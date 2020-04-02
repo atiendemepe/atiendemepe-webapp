@@ -2,11 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
 import router from './router'
+import auth from './service/auth'
 import Vuelidate from 'vuelidate'
 
 import VueFeather from 'vue-feather';
 
-import firebase from 'firebase'
+import * as firebase from 'firebase/app'
 
 import './assets/css/theme.scss'
 
@@ -23,6 +24,8 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
+firebase.auth().onAuthStateChanged(auth.onAuthStateChanged)
 
 Vue.use(VueFeather);
 Vue.use(Vuelidate)

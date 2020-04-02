@@ -1,8 +1,6 @@
 <template>
   <home-layout>
-    <div class="container">
-      Hola {{$store.state.auth.user.name}}!
-    </div>
+      Profile
   </home-layout>
 </template>
 
@@ -13,10 +11,6 @@ import HomeLayout from '@/views/layout/HomeLayout.vue'
 export default {
   name: 'Home',
   methods: {
-    logout() {
-      this.$store.dispatch('auth/logout')
-      this.$router.push({ name: 'login' })
-    }
   },
   components: {
     HomeLayout

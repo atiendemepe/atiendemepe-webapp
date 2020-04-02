@@ -5,6 +5,7 @@
                 <div class="content">
                 <p><img alt="Atiendeme.pe" src="../../assets/logo.png" width="112" height="28"></p>
                 <p><progress ref="progress" class="progress is-small is-primary" max="100">15%</progress></p>
+                <p>{{successMessage}}</p>
                 </div>
             </div>
         </div>
@@ -12,7 +13,7 @@
 </template>
 <script>
 export default {
-    props: ['loading', 'progress'],
+    props: ['loading', 'progress', 'successMessage'],
     data() {
         return {}
     },

@@ -1,6 +1,6 @@
 <template>
   <navigation-layout>
-    <loading :loading="form.loading" :progress="form.progress" />
+    <loading :loading="form.loading" :successMessage="form.successMessage" :progress="form.progress" />
     <section class="section">
       <div class="container">
         <h4 class="title is-4 has-text-centered">Crear cuenta</h4>
@@ -47,8 +47,9 @@
 
 <script>
 // @ is an alias to /src
-//import auth from '@/service/auth'
-import { required, minLength, email } from 'vuelidate/lib/validators'
+import auth from '@/service/auth'
+
+import { required, sameAs, minLength, email } from 'vuelidate/lib/validators'
 import NavigationLayout from '@/views/layout/NavigationLayout.vue'
 import Loading from '@/views/components/Loading.vue'
 
@@ -63,7 +64,8 @@ export default {
         password: '',
         confirmPassword: '',
         loading: false,
-        progress: 0
+        progress: 0,
+        successMessage: ''
       }
     }
   },
@@ -85,7 +87,7 @@ export default {
       },
       confirmPassword: {
         required,
-        minLength: minLength(8)
+        sameAsPassword: sameAs('password')
       }
     }
   },
@@ -94,14 +96,18 @@ export default {
   methods: {
     async submit() {
       this.$v.$touch()
-      this.form.loading = true
-      setTimeout(() => {
+      if (!this.$v.$invalid) {
+        this.form.loading = true
+        console.log(this.form)
+        await auth.createUser(this.form)
+        await auth.login(this.form.email, this.form.password)
         this.form.progress = 100
-        this.form.loading = false
-      }, 2000)
-      /*
-      if (!this.$v.$invalid)
-        await auth.createUser(this.form)*/
+        this.form.successMessage = 'Registro exitoso!'
+        setTimeout(() => {
+          //this.form.loading = false
+          this.$router.push({ name: 'home' })
+        }, 500)
+      } 
     }
   },
   components: {
