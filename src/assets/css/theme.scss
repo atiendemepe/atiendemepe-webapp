@@ -52,3 +52,7 @@ $input-background-color: $gray-ultraligth;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
+.content p:not(:last-child) {
+  margin-bottom: 1em;
+}
