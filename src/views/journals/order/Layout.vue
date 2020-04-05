@@ -1,21 +1,15 @@
 <template>
-    <div>
-        <nav class="navbar is-white is-fixed-top" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-      <a
-        role="button"
-        @click.prevent="onClickBack"
-        class="navbar-start"
-        aria-label="menu"
-        aria-expanded="false"
-      >
-                <span class="icon">
-                <feather type="arrow-left"></feather>
-                </span>
-      </a>
-            </div>
-        </nav>
-        <slot />
+  <div>
+    <nav class="navbar is-transparent has-background-transparent" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a role="button" @click.prevent="onClickBack" class="navbar-start" aria-label="menu" aria-expanded="false">
+          <span class="icon">
+            <feather type="arrow-left"></feather>
+          </span>
+        </a>
+      </div>
+    </nav>
+    <slot />
     </div>
 </template>
 <script>

@@ -4,8 +4,9 @@
 $grey: #8F8FAB;
 $grey-strong: #78849E;
 $strong-pink: #FB4A6F;
-$dark: #272D58;
+$dark: #454F63;//#272D58;
 $gray-ultraligth: #FDFDFD;
+$light: #FBFBFC;
 
 $text: $grey-strong;
 $text-strong: $dark;
@@ -32,7 +33,22 @@ $input-background-color: $gray-ultraligth;
 @import "bulma/sass/elements/title.sass";
 @import "bulma/sass/form/_all.sass";
 @import "bulma/sass/components/navbar.sass";
+@import "bulma/sass/components/tabs.sass";
 @import "bulma/sass/layout/hero.sass";
 @import "bulma/sass/layout/section.sass";
+@import "bulma/sass/grid/_all.sass";
 
-@import "../../../node_modules/firebaseui/dist/firebaseui.css"
+@import "../../../node_modules/firebaseui/dist/firebaseui.css";
+
+.has-background-transparent {
+  background-color: transparent;
+  background-image: none;
+}
+
+.is-vertically-centered {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

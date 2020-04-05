@@ -91,7 +91,11 @@ export default {
       }
     }
   },
-  mounted() {
+  created() {
+    document.body.classList.add('has-navbar-fixed-top')
+  },
+  destroyed() {
+    document.body.classList.remove('has-navbar-fixed-top')
   },
   methods: {
     async submit() {

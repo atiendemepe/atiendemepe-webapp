@@ -12,6 +12,12 @@ import HomeLayout from '@/views/layout/HomeLayout.vue'
 
 export default {
   name: 'Home',
+  created() {
+    document.body.classList.add('has-navbar-fixed-top', 'has-navbar-fixed-bottom')
+  },
+  destroyed() {
+    document.body.classList.remove('has-navbar-fixed-top', 'has-navbar-fixed-bottom')
+  },
   methods: {
     logout() {
       this.$store.dispatch('auth/logout')

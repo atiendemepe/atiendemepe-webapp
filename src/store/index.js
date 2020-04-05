@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import VuexPersistence from 'vuex-persist'
 
 import auth from './auth'
+import restaurant from './restaurant'
 
 const vuexLocal = new VuexPersistence({
   storage: window.localStorage
@@ -18,7 +19,8 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    auth
+    auth,
+    restaurant
   },
   plugins: [vuexLocal.plugin]
 })
