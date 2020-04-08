@@ -1,5 +1,6 @@
 import Restaurant from './Restaurant.vue'
 import SelectOption from './SelectOption.vue'
+import Summary from './Summary.vue'
 
 const routes = [
     {
@@ -11,6 +12,11 @@ const routes = [
         name: 'selectOption',
         path: '/restaurant/:id/option/:optionId',
         component: SelectOption
+    },
+    {
+        name: 'summary',
+        path: '/restaurant/:id/option/:optionId/summary',
+        component: Summary
     }
 ]
 

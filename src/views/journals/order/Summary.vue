@@ -1,31 +1,24 @@
 <template>
   <layout>
     <section class="section">
-      <div class="container order-section has-bottom-border">
+      <div class="container" style="padding-top: 25px;">
+        <div class="content has-text-centered">
+          <h4 class="title is-4">{{$store.getters['restaurant/menu'].name}}</h4>
+        </div>
         <div class="columns is-mobile">
           <div class="column">
-            <div class="content">
-              <h4 class="title is-4">{{$store.getters['restaurant/currentOption'].name}}</h4>
-              <h6 class="subtitle is-6">{{$store.getters['restaurant/currentOption'].description}}</h6>
-            </div>
+            <p class="has-text-weight-bold small-title">Tu pedido</p>
           </div>
-          <div class="column is-narrow">
-            <img src="../../../assets/img/samples/bembos-combo1.png" />
+          <div class="column has-text-right">
+            <router-link :to="{ name: 'restaurant', params: { id: $store.getters['restaurant/menu'].id } }">Agregar más</router-link>
           </div>
         </div>
-      </div>
-      <div class="container order-section has-bottom-border" style="padding-top: 25px">
-        <p class="has-text-weight-bold small-title">¿Cuánta hambre tienes?</p>
-        <div class="field is-grouped">
-        <p class="control" v-for="presentation in $store.getters['restaurant/currentOption'].presentations" :key="presentation.name">
-          <button class="button is-rounded-small" :class="{ 'is-primary': form.presentation === presentation.name}" @click="onClickSelectPresentation(presentation)">{{presentation.name}} ({{presentation.price}})</button>
-        </p>
-        </div>
+        <!-- <p class="content"><router-link :to="{ name: 'restaurant', params: { id: $store.getters['restaurant/menu'].id } }">Agregar método de pago</router-link></p> -->
       </div>
     </section>
     <nav class="navbar is-white is-fixed-bottom is-hidden-desktop" role="navigation" aria-label="main navigation">
         <div class="navbar-item">
-          <router-link :to="{ name: 'summary'}" class="button is-primary is-fullwidth is-rounded">Confirmar pedido</router-link>
+          <button class="button is-success is-fullwidth is-rounded">Realizar pedido</button>
         </div>
     </nav>
   </layout>

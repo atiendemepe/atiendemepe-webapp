@@ -1,12 +1,21 @@
 const restaurantData = {
   id: 123,
+  name: 'Bembos',
+  hours: '09:00 - 22:00',
   categories: ['Promociones', 'Hamburguesas', 'Loncheritas'],
   categoryDetails: {
     'Promociones': [{
       id: 1,
       name: 'Clásica',
       description: 'Clásica Mediana + 1 Papa Mediana + 1 Gaseosa personal.',
-      price: 13.9
+      price: 13.9,
+      presentations: [{
+        name: 'Mediana',
+        price: 13.9
+      }, {
+        name: 'Grande',
+        price: 14.9
+      }]
     }, {
       id: 2,
       name: 'Cheese',
@@ -83,9 +92,10 @@ export default {
       commit('setRestaurant', data)
     },
     async loadRestaurantMenuInfo({ commit }, { restaurantId }) {
-      commit('setMenu', Object.assign(restaurantData, { restaurantId }))
+      commit('setMenu', Object.assign(restaurantData, { id: restaurantId }))
     },
     async loadRestaurantMenuOptionInfo({ commit }, { menuOptionId }) {
+      commit('setMenu', Object.assign(restaurantData, { id: 123 }))
       const options = Object.values(restaurantData.categoryDetails).flatMap(o => o).filter(detail => detail.id == menuOptionId)
       commit('setCurrentOption', options[0])
     }

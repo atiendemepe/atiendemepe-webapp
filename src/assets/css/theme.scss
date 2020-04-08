@@ -45,6 +45,16 @@ $input-background-color: $gray-ultraligth;
   background-image: none;
 }
 
+.is-rounded-small {
+  border-radius: 8px;
+}
+
+.has-bottom-border {
+  border-bottom: solid 1pt rgba(143,143,171, .3);
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
 .is-vertically-centered {
   margin: 0;
   position: relative;

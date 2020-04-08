@@ -1,9 +1,9 @@
 <template>
   <div>
-    <nav class="navbar is-transparent has-background-transparent" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-fixed-top has-background-transparent" :class="{ 'is-transparent': !isPrimary, 'is-primary': isPrimary}" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a role="button" @click.prevent="onClickBack" class="navbar-start" aria-label="menu" aria-expanded="false">
-          <span class="icon">
+          <span class="icon" :class="{ 'has-text-white': isPrimary}">
             <feather type="arrow-left"></feather>
           </span>
         </a>
@@ -14,11 +14,15 @@
 </template>
 <script>
 
-export default {
-    
+export default { 
   methods: {
     onClickBack() {
       this.$router.go(-1);
+    }
+  },
+  computed: {
+    isPrimary() {
+      return this.$route.name === 'summary'
     }
   }
 }
